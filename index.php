@@ -9,12 +9,44 @@ try {
     die('Could not connect to the database.');
 }
 
-$statement = $pdo->prepare('select * from books');
-$statement->execute();
-$books = $statement->fetchAll(PDO::FETCH_OBJ);
+$request_uri = $_SERVER['REQUEST_URI'];
 
-var_dump($books);
+switch ($request_uri) {
+    case '/':
+        // code to handle the homepage
+        break;
+    case '/books':
+        $statement = $pdo->prepare('select * from books');
+        $statement->execute();
+        $books = $statement->fetchAll(PDO::FETCH_OBJ);
+
+        require 'views/books.view.php';
+        // code to handle the about page
+        break;
+    case '/books/loans':
+        // code to handle the contact page
+        break;
+    case '/books/create':
+        // code to handle the contact page
+        break;
+    case '/users':
+        // code to handle the contact page
+        break;
+    case '/users':
+        // code to handle the contact page
+        break;
+    default:
+        // code to handle any other pages
+        http_response_code(404);
+        break;
+}
 
 
 
-require 'index.view.php';
+
+
+// var_dump($books);
+
+
+
+require 'views/index.view.php';

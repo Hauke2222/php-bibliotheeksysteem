@@ -87,6 +87,5 @@ function createDatabase($host, $username, $password, $database)
     $conn = null;
 }
 
-// example usage
 createDatabase($host, $username, $password, $database);
 createTables($host, $username, $password, $database);

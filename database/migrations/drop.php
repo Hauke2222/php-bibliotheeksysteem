@@ -22,5 +22,4 @@ function dropDatabase($host, $username, $password, $database)
     $conn = null;
 }
 
-// example usage
 dropDatabase($host, $username, $password, $database);
