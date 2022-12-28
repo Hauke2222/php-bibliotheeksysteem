@@ -1,4 +1,8 @@
 <?php
+
+namespace LibrarySystem\Controllers;
+
+
 class UserController
 {
     // PDO object used for connecting to the database
@@ -18,6 +22,14 @@ class UserController
         // Insert the new user into the database
         $stmt = $this->db->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
         $stmt->execute([$name, $email, $password_hash]);
+    }
+
+    // Get all users
+    public function getAll()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users");
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     // Get a user by ID
