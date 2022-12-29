@@ -8,6 +8,10 @@ use LibrarySystem\Controllers\AuthController;
 use LibrarySystem\Controllers\BookController;
 use LibrarySystem\Controllers\UserController;
 
+require 'controllers/AuthController.php';
+require 'controllers/BookController.php';
+require 'controllers/UserController.php';
+
 try {
     $pdo = new PDO('mysql:host=127.0.0.1;dbname=library_system', 'root', '');
 } catch (PDOException $e) {

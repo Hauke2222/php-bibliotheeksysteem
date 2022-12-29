@@ -14,22 +14,22 @@
                 <th>Titel</th>
                 <th>Auteur</th>
                 <th>ISBN</th>
-                <th>Beschikbaarheid</th>
                 <th>Beschikbaar op</th>
+                <th>Lenen</th>
             </tr>
             <?php foreach ($books as $book) { ?>
                 <tr>
                     <td><?php echo $book['title']; ?></td>
                     <td><?php echo $book['author']; ?></td>
                     <td><?php echo $book['isbn']; ?></td>
+                    <td><?php echo $book['available_on']; ?></td>
                     <td>
-                        <?php if ($book->available) {
-                            echo "Beschikbaar";
-                        } else {
-                            echo "Niet beschikbaar";
+                        <?php if ($book['available']) { ?>
+                            <a href="/books/<?php echo $book['id']; ?>/borrow">Leen</a>
+                        <?php } else {
+                            echo "Nog niet beschikbaar";
                         } ?>
                     </td>
-                    <td><?php echo $book['available_on']; ?></td>
                 </tr>
             <?php } ?>
         </table>
