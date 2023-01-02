@@ -17,7 +17,7 @@
                 <th>Beschikbaar op</th>
                 <th>Lenen</th>
             </tr>
-            <?php foreach ($books as $book) { ?>
+            <?php foreach ($data as $book) { ?>
                 <tr>
                     <td><?php echo $book['title']; ?></td>
                     <td><?php echo $book['author']; ?></td>

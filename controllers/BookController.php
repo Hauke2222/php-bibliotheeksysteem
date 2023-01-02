@@ -1,8 +1,5 @@
 <?php
 
-namespace LibrarySystem\Controllers;
-
-
 class BookController
 {
     // PDO object used for connecting to the database

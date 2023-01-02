@@ -1,49 +1,32 @@
 <?php
 
-use LibrarySystem\Controllers\AuthController;
-use LibrarySystem\Controllers\BookController;
-use LibrarySystem\Controllers\UserController;
-
 require 'controllers/AuthController.php';
 require 'controllers/BookController.php';
 require 'controllers/UserController.php';
+require 'routes.php';
+require 'pdo.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$routes = [
-    '/books' => ['controller' => 'BookController', 'method' => 'index'],
-    '/books/loans' => ['controller' => 'BookController', 'method' => 'loans'],
-    // '/books/create' => [
-    //     'controller' => 'BookController',
-    //     'method' => 'create',
-    //     'middleware' => 'IsAdmin',
-    // ],
-    '/users' => ['controller' => 'UserController', 'method' => 'index'],
-    '/users/create' => ['controller' => 'UserController', 'method' => 'create'],
-    '/login' => ['controller' => 'AuthController', 'method' => 'login'],
-];
-
-function routeToControllerMethod($uri, $routes)
+function routeToControllerMethod($uri, $routes, $pdo)
 {
-    if (array_key_exists($uri, $routes)) {
-        $route = $routes[$uri];
-        $controllerName = $route['controller'];
-        $methodName = $route['method'];
-
-        // Check if the middleware exists and run it
-        // if (isset($route['middleware'])) {
-        //     $middlewareName = $route['middleware'];
-        //     $middleware = new $middlewareName();
-        //     if (!$middleware->handle()) {
-        //         return;
-        //     }
-        // }
-
-        // Create an instance of the controller and call the method
-        $controller = new $controllerName();
-        $controller->$methodName();
-    } else {
+    if (!array_key_exists($uri, $routes)) {
         abort();
+    }
+
+    $route = $routes[$uri];
+    $controllerName = $route['controller'];
+    $methodName = $route['method'];
+    $view = $route['view'];
+
+    // Create an instance of the controller 
+    $controller = new $controllerName($pdo);
+
+    // Call the method of the controller using call_user_func
+    $data = call_user_func([$controller, $methodName]);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        require $view;
     }
 }
 
@@ -54,4 +37,4 @@ function abort($code = 404)
     die();
 }
 
-routeToControllerMethod($uri, $routes);
+routeToControllerMethod($uri, $routes, $pdo);

@@ -4,7 +4,6 @@
 <?php include 'views/partials/head.php'; ?>
 
 <body>
-    <?php include 'views/partials/header.php'; ?>
     <main>
         <h1>Nieuwe gebruiker</h1>
         <form action="/users/create" method="post">

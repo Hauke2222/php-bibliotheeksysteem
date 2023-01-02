@@ -1,7 +1,5 @@
 <?php
 
-namespace LibrarySystem\Controllers;
-
 class AuthController
 {
     private $pdo;
