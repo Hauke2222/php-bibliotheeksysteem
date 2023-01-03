@@ -34,13 +34,6 @@ class BookController
         return $stmt->fetchAll();
     }
 
-    public function getallLoans()
-    {
-        $stmt = $this->db->prepare("SELECT * FROM book_loans");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
     // Update a book
     public function update($id, $title, $author, $price)
     {

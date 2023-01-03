@@ -12,8 +12,13 @@ $routes = [
         'view' => 'views/books/create.view.php',
     ],
     '/books/loans' => [
-        'controller' => 'BookController',
+        'controller' => 'LoanController',
         'method' => 'getAllLoans',
+        'view' => 'views/books/loans.view.php',
+    ],
+    '/books/user/loans' => [
+        'controller' => 'LoanController',
+        'method' => 'getLoansByUser',
         'view' => 'views/books/loans.view.php',
     ],
     '/users' => [

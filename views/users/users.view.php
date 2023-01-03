@@ -16,7 +16,7 @@
                     <th>Email</th>
                     <th>Actions</th>
                 </tr>
-                <?php foreach ($users as $user) { ?>
+                <?php foreach ($data as $user) { ?>
                     <tr>
                         <td><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></td>
                         <td><?php echo $user['email']; ?></td>

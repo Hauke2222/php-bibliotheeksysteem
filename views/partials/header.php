@@ -3,7 +3,7 @@
     <a href="/users/create">Registreren</a>
     <nav>
         <a href="/books">Boeken</a> |
-        <a href="/books/loans">Mijn Geleende boeken</a>
+        <a href="/books/user/loans">Mijn Geleende boeken</a>
     </nav>
     <nav>
         <a href="/users">Gebruikers</a> |

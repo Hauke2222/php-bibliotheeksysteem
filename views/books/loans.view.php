@@ -16,20 +16,18 @@
                 <th>Verlengd</th>
                 <th>Terug te brengen op</th>
             </tr>
-            <?php foreach ($loans as $loan) { ?>
+            <?php foreach ($data as $loan) { ?>
                 <tr>
                     <td>
                         <?php
-                        // require 'controllers/BookController.php';
-                        // $bookController = new BookController($pdo);
+                        $bookController = new BookController($pdo);
                         $book = $bookController->get($loan['book_id']);
                         echo $book['title'];
                         ?>
                     </td>
                     <td>
                         <?php
-                        // require 'controllers/UserController.php';
-                        // $userController = new UserController($pdo);
+                        $userController = new UserController($pdo);
                         $user = $userController->get($loan['user_id']);
                         echo $user['name'];
                         ?>
