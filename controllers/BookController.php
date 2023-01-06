@@ -31,7 +31,8 @@ class BookController
     {
         $stmt = $this->db->prepare("SELECT * FROM books");
         $stmt->execute();
-        return $stmt->fetchAll();
+        $data = $stmt->fetchAll();
+        include 'views/books/books.view.php';
     }
 
     // Update a book
