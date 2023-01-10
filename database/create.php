@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Database;
+
+use PDO;
+use PDOException;
+
 $host = '127.0.0.1';
 $username = 'root';
 $password = '';

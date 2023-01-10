@@ -1,6 +1,10 @@
 <?php
 
-$router->get('/books', 'BookController@getAll');
+namespace App\Routing;
+
+$router = new Router();
+
+$router->get('books', 'BookController@getAll');
 $router->get('/books/loans', 'LoanController@getAllLoans');
 $router->get('/books/user/loans', 'LoanController@getLoansByUser');
 $router->get('/users', 'UserController@getAll');

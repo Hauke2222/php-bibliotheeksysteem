@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controllers;
+
 class LoanController
 {
     // PDO object used for connecting to the database

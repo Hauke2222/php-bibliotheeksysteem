@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Routing;
+
+use Exception;
+use App\Controllers\AuthController;
+use App\Controllers\BookController;
+use App\Controllers\UserController;
+use App\Controllers\LoanController;
 // require 'routes.php';
 // require 'pdo.php';
 
@@ -24,7 +31,7 @@ class Router
     {
         $router = new static;
 
-        var_dump($router);
+        // var_dump($router);
         require $file;
 
         return $router;
@@ -60,6 +67,7 @@ class Router
      */
     public function direct($uri, $requestType)
     {
+        // var_dump($uri);
         if (array_key_exists($uri, $this->routes[$requestType])) {
             return $this->callAction(
                 ...explode('@', $this->routes[$requestType][$uri])

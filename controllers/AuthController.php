@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controllers;
+
 class AuthController
 {
     private $pdo;

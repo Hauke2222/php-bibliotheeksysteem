@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controllers;
+
 class UserController
 {
     // PDO object used for connecting to the database
